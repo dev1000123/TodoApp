@@ -10,7 +10,8 @@ const HomeView=()=>{
   return(
     <View style={styles.container}>
       <View style={styles.topbar}>
-        <Text style={styles.title}>ToDo <Text style={{fontFamily:"Inter-Medium",fontSize:14}}>Prototype</Text></Text>
+        <Text style={styles.title}>ToDo 
+        <Text style={{fontFamily:"Inter-Medium",fontSize:14}}>Prototype</Text></Text>
       </View>
     </View>
   )

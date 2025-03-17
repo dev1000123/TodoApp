@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const homepageStyles = StyleSheet.create({
     container:{
-        backgroundColor:"#161616",
+        backgroundColor:"#1a1a1a",
         flex:1
       },
       topbar:{
         flexDirection:"column",
         height:'10%',
-        backgroundColor:"#242424",
+        backgroundColor:"#1a1a1a",
         justifyContent:"center"
       },
       title:{
