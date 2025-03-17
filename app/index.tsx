@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   title:{
     color: "#FFFFFF",
     fontFamily: "Inter-Black",
-    fontSize:17,
+    fontSize:10,
     marginLeft:10
   }
 })
