@@ -1,5 +1,11 @@
 import { Text, View,StyleSheet } from "react-native";
 import {} from "@expo-google-fonts/inter"
+
+
+
+
+
+
 const HomeView=()=>{
   return(
     <View style={styles.container}>
@@ -24,7 +30,7 @@ const styles = StyleSheet.create({
   title:{
     color: "#FFFFFF",
     fontFamily: "Inter-Black",
-    fontSize:7,
+    fontSize:16,
     marginLeft:10
   }
 })
