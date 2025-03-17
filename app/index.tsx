@@ -1,9 +1,9 @@
 import { Text, View,StyleSheet } from "react-native";
 import {} from "@expo-google-fonts/inter"
+import {homepageStyles} from "../styles/styles"
 
 
-
-
+const styles = homepageStyles
 
 
 const HomeView=()=>{
@@ -16,8 +16,6 @@ const HomeView=()=>{
   )
 }
 
-const styles = StyleSheet.create({
-  
-})
+
 
 export default HomeView
