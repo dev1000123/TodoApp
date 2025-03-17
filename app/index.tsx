@@ -5,7 +5,7 @@ import {} from "react-native-paper"
 import {createMaterialBottomTabNavigator} from "react-native-paper/react-navigation"
 
 const styles = homepageStyles
-const list
+
 
 
 
