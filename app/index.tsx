@@ -1,9 +1,15 @@
 import { Text, View,StyleSheet } from "react-native";
 import {} from "@expo-google-fonts/inter"
 import {homepageStyles} from "../styles/styles"
-
+import {} from "react-native-paper"
+import {createMaterialBottomTabNavigator} from "react-native-paper/react-navigation"
 
 const styles = homepageStyles
+
+
+
+
+
 
 
 const HomeView=()=>{
