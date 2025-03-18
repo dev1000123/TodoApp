@@ -1,10 +1,25 @@
-import { Stack } from "expo-router";
-import {Text, View,StyleSheet} from 'react-native'
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreAllLogs(true);
 
 export default function RootLayout() {
-  return (
-  <Stack >
-    <Stack.Screen name="index" options={{header:()=>null,}} />
-  </Stack>);
-}
 
+  return (
+    <>
+    <StatusBar style="light" />
+
+    <Stack>
+      <Stack.Screen
+      
+            name="(tabs)"
+            options={{
+              headerShown: false,
+            }}
+      />
+
+    </Stack>
+    </>
+  );
+}
