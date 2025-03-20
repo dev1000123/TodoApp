@@ -18,11 +18,30 @@ export const homepageStyles = StyleSheet.create({
   completed:{
     textDecorationLine:'line-through',
     color:"#fff",
-    fontSize:16
+    fontSize:20,
+    textAlign:"center",
+    fontFamily:"Inter-Medium"
   },
   incomplete:{
     color:"#fff",
-    fontSize:19
+    fontSize:20,
+    textAlign:"center",
+    fontFamily:"Inter-Medium"
+  },
+  TodoTray:{
+    width:382,
+    height:60,
+    backgroundColor:"#212121",
+    flexDirection:"column",
+    justifyContent:"center",
+    borderRadius:20,
+  },
+  Todo:{
+    marginLeft:15,
+    flexDirection:"row",
+    height:"auto",
+    
+    
   }
 })
 export const addStyles = StyleSheet.create({

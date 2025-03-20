@@ -21,7 +21,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Todo Prototype',
+          title: 'Todos',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24} />
           ),
@@ -31,7 +31,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="add"
         options={{
-          title: 'add',
+          title: 'Add',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'add-outline' : 'add-circle-outline'} color={color} size={24}/>
           ),

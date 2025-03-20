@@ -4,10 +4,12 @@ import {homepageStyles} from "../../styles/styles"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useEffect, useState } from 'react';
 import {Todo,TodoList} from "../../structure"
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const styles = homepageStyles
 export default function Index() {
   const nav = useNavigation()
+  
 
   const [TodoList,setTodoList] = useState<TodoList>({
     todos:[]
@@ -30,7 +32,10 @@ export default function Index() {
     }
   })},[])
   const sync = async ()=>{
-    await AsyncStorage.setItem("todos",JSON.stringify(TodoList))
+    if (TodoList.todos.length>0){ 
+      await AsyncStorage.setItem("todos",JSON.stringify(TodoList))
+      console.log("changed")
+      }
   }
   useEffect(()=>{
     sync()
@@ -41,10 +46,26 @@ export default function Index() {
       item.id===id?{...item,completed:!item.completed}:item
     )
     setTodoList({...TodoList,todos:newTodos})
+    
+  }
+  const handleDelete = (id:number)=>{
+    const list:Todo[] = []
+    TodoList.todos.map((item)=>
+    {
+      if (item.id !==id){
+        list.push(item)
+      }
+      
+    }
+    )
+    setTodoList({...TodoList,todos:list})
   }
   const renderItem = ({item}:{item:Todo})=>(
-    <TouchableOpacity onPress={()=>handleComplete(item.id)}>
-      <Text style={item.completed?styles.completed:styles.incomplete}>{item.Label}</Text>
+    <TouchableOpacity onPress={()=>handleComplete(item.id)} onLongPress={()=>handleDelete(item.id)} style={styles.TodoTray} >
+      <View style={styles.Todo}>
+        <Ionicons name={!item.completed?"checkmark-sharp":"close-sharp"} size={28} style={{marginRight:10}} color={"#fff"}/>
+        <Text style={item.completed?styles.completed:styles.incomplete}>{item.Label}</Text>
+      </View>
     </TouchableOpacity>
   )
   return(
