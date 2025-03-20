@@ -15,15 +15,25 @@ export const homepageStyles = StyleSheet.create({
     textDecorationLine: 'underline',
     color: '#fff',
   },
+  completed:{
+    textDecorationLine:'line-through',
+    color:"#fff",
+    fontSize:16
+  },
+  incomplete:{
+    color:"#fff",
+    fontSize:19
+  }
 })
-export const aboutStyles = StyleSheet.create({
+export const addStyles = StyleSheet.create({
   container: {
     flex: 1,
+    
     backgroundColor: '#1a1a1a',
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignContent:'center'
   },
   text: {
     color: '#fff',
+    textAlign: 'center'
   },
 })
