@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { ExpoRoot, Link, router, useNavigation } from 'expo-router';
 // import { Route } from 'expo-router/build/Route';
 const styles = addStyles
-export default function AboutScreen() {
+export default function AddScreen() {
   const nav = useNavigation()
   const [CurrTodo,setCurrTodo] = useState('')
   const [TodoList,setTodoList] = useState<TodoList>({
