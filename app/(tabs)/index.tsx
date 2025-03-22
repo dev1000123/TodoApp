@@ -9,7 +9,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 const styles = homepageStyles
 export default function Index() {
   const nav = useNavigation()
-  
+  const [del,setDel] = useState(false)
 
   const [TodoList,setTodoList] = useState<TodoList>({
     todos:[]
@@ -31,16 +31,18 @@ export default function Index() {
       setTodoList(JSON.parse(items))
     }
   })},[])
+  
   const sync = async ()=>{
-    if (TodoList.todos.length>0){ 
+    if (TodoList.todos.length>0 || del){ 
       await AsyncStorage.setItem("todos",JSON.stringify(TodoList))
-      console.log("changed")
+      
+      setDel(false)
       }
   }
   useEffect(()=>{
     sync()
     // console.log(AsyncStorage.getItem("todos"))
-  },[TodoList])
+  },[TodoList,del])
   const handleComplete = (id:number)=>{
     const newTodos = TodoList.todos.map((item)=>
       item.id===id?{...item,completed:!item.completed}:item
@@ -59,6 +61,8 @@ export default function Index() {
     }
     )
     setTodoList({...TodoList,todos:list})
+    setDel(true)
+    sync()
   }
   const renderItem = ({item}:{item:Todo})=>(
     <TouchableOpacity onPress={()=>handleComplete(item.id)} onLongPress={()=>handleDelete(item.id)} style={styles.TodoTray} >

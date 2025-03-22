@@ -1,9 +1,10 @@
-import { Text, View, StyleSheet, TextInput, Button } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
 import {addStyles} from "../../styles/styles"
 import {Todo,TodoList} from "../../structure"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { useNavigation } from 'expo-router';
+import { ExpoRoot, Link, router, useNavigation } from 'expo-router';
+// import { Route } from 'expo-router/build/Route';
 const styles = addStyles
 export default function AboutScreen() {
   const nav = useNavigation()
@@ -15,7 +16,7 @@ export default function AboutScreen() {
     
     if (TodoList.todos.length>0){ 
     await AsyncStorage.setItem("todos",JSON.stringify(TodoList))
-    console.log("changed")
+    
     }
   }
   useEffect(() => {
@@ -43,7 +44,8 @@ export default function AboutScreen() {
   const handleChange = (text:string)=>{
     setCurrTodo(text)
   }
-  const handleComplete = ()=>{
+  const handleAdd = ()=>{
+    if (CurrTodo.trim()!==""){
     const newTodo:Todo={
       Label:CurrTodo,
       id:Date.now(),
@@ -52,13 +54,20 @@ export default function AboutScreen() {
     setTodoList({...TodoList,todos:[...TodoList.todos,newTodo]})
     setCurrTodo('')
     
+  
+    router.navigate("./index")
+    
     console.log(JSON.stringify(TodoList))
+  }
    
   }
   return (
     <View style={styles.container}>
-      <TextInput onChangeText={handleChange} placeholder='Write label' style={styles.text} placeholderTextColor="#fff" value={CurrTodo}></TextInput>
-      <Button onPress={handleComplete} title='test'/>
+      <TextInput onChangeText={handleChange} placeholder='Todo Name' style={styles.textBox} placeholderTextColor="#fff" value={CurrTodo}></TextInput>
+      <TouchableOpacity onPress={handleAdd} style={styles.add}>
+        
+        <Text style={styles.addText}>Add Todo</Text>              
+      </TouchableOpacity>
     </View>
   );
 } 
